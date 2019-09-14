@@ -51,7 +51,7 @@ def main():
     new_algos = update_algos(results, current_algos)
     copyfile(algofile, f"{algofile}.bak")
     with algofile.open("w") as algos:
-        algos.write(json.dumps(new_algos))
+        algos.write(json.dumps(new_algos, indent=4))
 
 
 if __name__ == "__main__":
