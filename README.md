@@ -9,3 +9,8 @@ PRs or issues welcome!
 
 ## Requirements
 * python 3.7+
+
+
+## Instructions
+* Download the script `update_algos.py` and put it in the same directory as `algos.txt` and `benchmark_results.txt`.
+* Run the script using python
