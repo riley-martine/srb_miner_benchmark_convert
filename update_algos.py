@@ -26,15 +26,27 @@ def read_benchmarks(file_contents: str) -> Dict[str, int]:
 read_algos = json.loads
 
 
-def update_algos(results: Dict[str, int], algos: Algos):
+def update_algos(results: Dict[str, int], algos: Algos) -> Algos:
+    """Return a copy of algos, updated with benchmark results."""
+    bench_algos = results.keys()
+    algo_names = [algo["algo"] for algo in algos["algos"]]
+    for bench_algo in bench_algos:
+        if bench_algo not in algo_names:
+            print(f"Algo {bench_algo} in benchmark but not algos.txt.")
+    for algo_name in algo_names:
+        assert isinstance(algo_name, str)
+        if algo_name not in bench_algos:
+            print(f"Algo {algo_name} in algos.txt but not benchmark.")
+
     for algo in algos["algos"]:
         algo_name = algo["algo"]
         assert isinstance(algo_name, str)
-        algo["hashrate"] = results[algo_name]
+        if algo_name in results:
+            algo["hashrate"] = results[algo_name]
     return algos
 
 
-def main():
+def main() -> None:
     benchfile, algofile = Path("benchmark_results.txt"), Path("algos.txt")
     if not benchfile.exists():
         print(f"Cannot find {str(benchfile)}, aborting.")
