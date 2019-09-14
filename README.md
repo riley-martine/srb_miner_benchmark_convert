@@ -14,3 +14,6 @@ PRs or issues welcome!
 ## Instructions
 * Download the script `update_algos.py` and put it in the same directory as `algos.txt` and `benchmark_results.txt`.
 * Run the script using python
+
+## Development
+Use `pytest` to run the test suite, and the Black autoformatter to format `.py` files.
