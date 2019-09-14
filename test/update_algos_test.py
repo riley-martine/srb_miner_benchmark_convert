@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from shutil import copyfile
 
-from convert import main, read_algos, read_benchmarks, update_algos
+from update_algos import main, read_algos, read_benchmarks, update_algos
 
 BENCH = "test/fixtures/benchmark_results.txt"
 ALGOS = "test/fixtures/algos.txt"
